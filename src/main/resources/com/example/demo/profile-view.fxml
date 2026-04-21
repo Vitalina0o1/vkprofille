@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane fx:id="rootPane" style="-fx-background-color: #EDEEF0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.VKProfileController">
+
+    <top>
+        <VBox>
+            <StackPane fx:id="coverContainer">
+                <ImageView fx:id="coverImage" fitHeight="160" fitWidth="900" preserveRatio="false" style="-fx-border-color: white; -fx-border-width: 0 0 1 0;">
+                    <Image url="https://via.placeholder.com/900x160/C4C9D1/FFFFFF?text=Обложка" />
+                </ImageView>
+            </StackPane>
+
+            <HBox fx:id="profileHeader" style="-fx-background-color: white; -fx-border-color: #D3D9E0; -fx-border-width: 0 0 1 0;">
+                <padding>
+                    <Insets bottom="15" left="20" right="20" top="15" />
+                </padding>
+
+                <StackPane fx:id="avatarContainer">
+                    <ImageView fx:id="avatar" fitHeight="150" fitWidth="150" style="-fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 75; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+                        <clip>
+                            <Circle centerX="75" centerY="75" radius="75" />
+                        </clip>
+                    </ImageView>
+                </StackPane>
+
+                <VBox spacing="6" style="-fx-padding: 0 0 0 15;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="nameLabel" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Валерия Смолина" />
+                        <Button fx:id="editNameBtn" style="-fx-background-color: transparent; -fx-text-fill: #4682B4; -fx-font-size: 16px; -fx-padding: 0 5; -fx-cursor: hand;" text="✎" />
+                    </HBox>
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #656565;" text="Админ сообщества https://vk.com/1psru" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #656565;" text="Отвечаю на вопросы ПН-ПТ, с 04 до 13 часов по МСК" />
+                    <HBox spacing="15">
+                        <Label style="-fx-font-size: 13px; -fx-text-fill: #939393;" text="Москва" />
+                        <Label style="-fx-font-size: 13px; -fx-text-fill: #939393;" text="Продвижение сайта, SEO" />
+                    </HBox>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <HBox alignment="TOP_RIGHT" spacing="10">
+                    <Button fx:id="addFriendButton" style="-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 4;" text="Добавить в друзья" />
+                    <Button style="-fx-background-color: #F0F2F5; -fx-text-fill: #2B5876; -fx-padding: 8 16; -fx-background-radius: 4;" text="Сообщение" />
+                    <Button style="-fx-background-color: #F0F2F5; -fx-text-fill: #2B5876; -fx-padding: 8 16; -fx-background-radius: 4;" text="Ещё" />
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <HBox spacing="20" style="-fx-background-color: #EDEEF0;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <VBox fx:id="leftColumn" prefWidth="500" spacing="15">
+                <VBox fx:id="photosCard" prefHeight="131.0" prefWidth="500.0" style="-fx-background-color: white; -fx-border-color: #D3D9E0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-padding: 12; -fx-spacing: 8;">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Фотографии" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #656565;" text="Нажмите кнопку, чтобы добавить фото" />
+                    <HBox fx:id="photosFlow" alignment="CENTER_LEFT" spacing="10" />
+                    <Button fx:id="uploadPhotoBtn" style="-fx-background-color: #4682B4; -fx-text-fill: white; -fx-padding: 6 12; -fx-background-radius: 4;" text="Загрузить фото" />
+                </VBox>
+            </VBox>
+
+            <VBox fx:id="rightColumn" prefWidth="250" spacing="15">
+                <VBox fx:id="mutualFriendsCard" style="-fx-background-color: white; -fx-border-color: #D3D9E0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-padding: 12; -fx-spacing: 8;">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Общие друзья 3" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #656565;" text="Валерия, Дарья и ещё 1" />
+                </VBox>
+
+                <VBox fx:id="friendsCard" style="-fx-background-color: white; -fx-border-color: #D3D9E0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-padding: 12; -fx-spacing: 8;">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Друзья 105" />
+                    <HBox fx:id="friendsFlow" alignment="CENTER_LEFT" spacing="10" />
+                </VBox>
+
+                <VBox style="-fx-background-color: white; -fx-border-color: #D3D9E0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-padding: 12; -fx-spacing: 8;">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Оформление" />
+                    <Button fx:id="themeButton" style="-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 20; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);" text="🌙 Тёмная тема" />
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
